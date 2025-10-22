@@ -4,7 +4,8 @@ import java.util.List;
 
 public record Order(
         String orderId,
-        List<Product> oderProducts
+       List<String> productIds
+       // List<Product> orderProducts
 
 ) {
 }
