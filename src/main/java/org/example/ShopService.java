@@ -1,6 +1,5 @@
 package org.example;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ShopService {
@@ -14,24 +13,30 @@ public class ShopService {
     }
 
     public void placeNewOrder(Order order) {
-        for(String pId : order.productIds()){
+        boolean allProductsAvailable = true;
+        for (String pId : order.productIds()) {
             Product p = productRepo.searchProduct(pId);
 
-            if(p == null){
+            if (p == null) {
                 System.out.println("Product with id " + pId + " not found");
-            }
-            else{
+                allProductsAvailable = false;
+            } else {
                 System.out.println("Product with id " + pId + " found");
             }
+        }
+        if (allProductsAvailable) {
             orderRepo.addOrder(order);
+            System.out.println("Order " + order.orderId() + " placed successfully");
+        } else {
+            System.out.println("Order " + order.orderId() + " couldn't be placed due to missing products");
         }
     }
 
 
-    public void showAllProducts(){
+    public void showAllProducts() {
         List<Product> products = productRepo.getProducts();
         System.out.println("All available products:");
-        for(Product p : products){
+        for (Product p : products) {
             System.out.println(p);
         }
     }
