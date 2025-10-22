@@ -1,10 +1,11 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class ProductRepo {
-    List<Product> products;
+    private List<Product> products = new ArrayList<>();
 
     public void  addProduct(Product product){
         products.add(product);
