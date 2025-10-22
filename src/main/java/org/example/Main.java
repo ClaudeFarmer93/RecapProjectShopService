@@ -10,11 +10,11 @@ public class Main {
         ProductRepo productRepoBakery = new ProductRepo();
         OrderRepo orderRepoBakery = new OrderListRepo();
 
-        ShopService bakery = new ShopService(orderRepoBakery,productRepoBakery);
+        ShopService bakery = new ShopService(orderRepoBakery, productRepoBakery);
 
 
         Product broetchen = new Product("P001", "Brötchen", 54, 0.54);
-        Product croissant =  new Product("P002", "Croissant", 40, 1.55);
+        Product croissant = new Product("P002", "Croissant", 40, 1.55);
         Product brezel = new Product("P003", "Brezel", 25, 0.95);
         Product sourdough = new Product("P004", "Sourdough", 10, 6.95);
         Product krapfen = new Product("P005", "Krapfen", 10, 1.75);
@@ -27,17 +27,17 @@ public class Main {
 
         bakery.showAllProducts();
 
-        Order firstorder = new Order("ORD001", List.of("P001", "P002", "P005"));
-        bakery.placeNewOrder(firstorder);
+        Order bakeryOrder = new Order("ORD001", List.of("P001", "P002", "P005"));
+        bakery.placeNewOrder(bakeryOrder);
 
         ProductRepo productRepoCafe = new ProductRepo();
         OrderRepo orderRepoCafe = new OrderMapRepo();
-        ShopService cafe = new ShopService(orderRepoCafe,productRepoCafe);
+        ShopService cafe = new ShopService(orderRepoCafe, productRepoCafe);
 
         Product espresso = new Product("P001", "Espresso", 100, 0.95);
         Product cappuccino = new Product("P002", "Cappuccino", 50, 1.50);
         Product flatWhite = new Product("P003", "Flat White", 50, 1.98);
-        Product americano =  new Product("P004", "Americano", 40, 1.25);
+        Product americano = new Product("P004", "Americano", 40, 1.25);
 
         productRepoCafe.addProduct(cappuccino);
         productRepoCafe.addProduct(flatWhite);
@@ -47,5 +47,8 @@ public class Main {
         cafe.showAllProducts();
         Order coffeeOrder = new Order("ORD001", List.of("P001", "P002", "P004"));
         cafe.placeNewOrder(coffeeOrder);
+
+        Order secondBakeryOrder = new Order("ORD002", List.of("P001", "P013", "P005"));
+        bakery.placeNewOrder(secondBakeryOrder);
     }
 }
