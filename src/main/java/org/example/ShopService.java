@@ -1,13 +1,14 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ShopService {
 
-    private OrderListRepo orderRepo;
+    private OrderRepo orderRepo;
     private ProductRepo productRepo;
 
-    public ShopService(OrderListRepo orderRepo, ProductRepo productRepo) {
+    public ShopService(OrderRepo orderRepo, ProductRepo productRepo) {
         this.orderRepo = orderRepo;
         this.productRepo = productRepo;
     }
@@ -23,6 +24,15 @@ public class ShopService {
                 System.out.println("Product with id " + pId + " found");
             }
             orderRepo.addOrder(order);
+        }
+    }
+
+
+    public void showAllProducts(){
+        List<Product> products = productRepo.getProducts();
+        System.out.println("All available products:");
+        for(Product p : products){
+            System.out.println(p);
         }
     }
 }
