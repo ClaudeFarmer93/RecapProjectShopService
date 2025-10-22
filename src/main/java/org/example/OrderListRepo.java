@@ -13,13 +13,15 @@ public class OrderListRepo implements OrderRepo {
     public void removeOrder(Order order) {
         orders.remove(order);
     }
+
     public List<Order> getOrders() {
         return orders;
     }
+
     public Order getOrderById(String orderId) {
 
         for (Order order : orders) {
-            if(order.orderId().equals(orderId)) {
+            if (order.orderId().equals(orderId)) {
                 return order;
             }
         }

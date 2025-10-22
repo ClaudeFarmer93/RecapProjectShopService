@@ -7,23 +7,23 @@ import java.util.Objects;
 public class ProductRepo {
     private List<Product> products = new ArrayList<>();
 
-    public void  addProduct(Product product){
+    public void addProduct(Product product) {
         products.add(product);
-        System.out.println("Added product "+product + "to List");
+        System.out.println("Added product " + product + "to List");
     }
 
-    public void  removeProduct(Product product){
+    public void removeProduct(Product product) {
         products.remove(product);
-        System.out.println("Removed product "+product + "from List");
+        System.out.println("Removed product " + product + "from List");
     }
 
-    public Product searchProduct(String productId){
+    public Product searchProduct(String productId) {
         for (Product product : products) {
-          if(product.productId().equals(productId)) {
-              return product;
-          }
+            if (product.productId().equals(productId)) {
+                return product;
+            }
         }
-        System.out.println("No product with id "+productId+" found");
+        System.out.println("No product with id " + productId + " found");
         return null;
 
     }
